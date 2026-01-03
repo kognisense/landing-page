@@ -56,7 +56,7 @@ function Step1CompanyScale({
             className={`w-full rounded-lg p-4 text-left transition-all ${
               selectedOption?.value === option.value
                 ? 'bg-olive-950 text-white ring-2 ring-olive-600 dark:bg-white dark:text-olive-950'
-                : 'bg-olive-950/5 hover:bg-olive-950/10 dark:bg-white/5 dark:hover:bg-white/10'
+                : 'bg-olive-950/5 text-olive-950 hover:bg-olive-950/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10'
             }`}
           >
             <div className="flex items-start justify-between">
@@ -128,7 +128,7 @@ function Step2MarketReach({
             className={`w-full rounded-lg p-4 text-left transition-all ${
               formData.marketReach.includes(option.value)
                 ? 'bg-olive-950 text-white ring-2 ring-olive-600 dark:bg-white dark:text-olive-950'
-                : 'bg-olive-950/5 hover:bg-olive-950/10 dark:bg-white/5 dark:hover:bg-white/10'
+                : 'bg-olive-950/5 text-olive-950 hover:bg-olive-950/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10'
             }`}
           >
             <div className="flex items-start justify-between">
@@ -210,7 +210,7 @@ function Step3CommodityExposure({
             className={`w-full rounded-lg p-4 text-left transition-all ${
               formData.commodities.includes(option.value)
                 ? 'bg-olive-950 text-white ring-2 ring-olive-600 dark:bg-white dark:text-olive-950'
-                : 'bg-olive-950/5 hover:bg-olive-950/10 dark:bg-white/5 dark:hover:bg-white/10'
+                : 'bg-olive-950/5 text-olive-950 hover:bg-olive-950/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10'
             }`}
           >
             <div className="flex items-start justify-between">
@@ -267,7 +267,7 @@ function Step4ProcessMaturity({
             className={`w-full rounded-lg p-4 text-left transition-all ${
               formData.processMaturity === option.value
                 ? 'bg-olive-950 text-white ring-2 ring-olive-600 dark:bg-white dark:text-olive-950'
-                : 'bg-olive-950/5 hover:bg-olive-950/10 dark:bg-white/5 dark:hover:bg-white/10'
+                : 'bg-olive-950/5 text-olive-950 hover:bg-olive-950/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10'
             }`}
           >
             <div className="flex items-start justify-between">

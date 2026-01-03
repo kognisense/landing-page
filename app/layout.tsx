@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -28,13 +28,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
+                // Default to light mode
+                // Only add dark class if user has explicitly set theme to 'dark'
                 const theme = localStorage.getItem('theme');
-                // Only add dark class if explicitly set to 'dark'
-                // Otherwise default to light mode
                 if (theme === 'dark') {
                   document.documentElement.classList.add('dark');
                 }
-              } catch (e) {}
+              } catch (e) {
+                // If localStorage fails, stay in light mode (default)
+              }
             `,
           }}
         />
