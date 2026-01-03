@@ -93,18 +93,20 @@ export function HowItWorks({ children, ...props }: ComponentProps<typeof Section
           />
           <TrustFeature
             icon={<MapPinIcon />}
-            title="UK Data Residency"
+            title={<span>🇬🇧 UK Data Residency</span>}
             description="All data stays within AWS UK Regions (London) to meet post-Brexit GDPR requirements."
-          />
-          <TrustFeature
-            icon={<LockIcon />}
-            title="GDPR Compliant"
-            description="Full compliance with UK-GDPR and EU data protection regulations."
+            className="ring-1 ring-olive-950/10 dark:ring-white/10"
           />
           <TrustFeature
             icon={<CloudIcon />}
             title="VPC Data Isolation"
             description="Each SME's data is completely siloed in isolated virtual private environments."
+            className="ring-1 ring-olive-950/10 dark:ring-white/10"
+          />
+          <TrustFeature
+            icon={<LockIcon />}
+            title="GDPR Compliant"
+            description="Full compliance with UK-GDPR and EU data protection regulations."
           />
         </div>
       </div>

@@ -1,5 +1,8 @@
+'use client'
+
 import { ElDialog, ElDialogPanel } from '@tailwindplus/elements/react'
 import { clsx } from 'clsx/lite'
+import { useState, useEffect } from 'react'
 import type { ComponentProps, ReactNode } from 'react'
 
 export function NavbarLink({
@@ -42,8 +45,31 @@ export function NavbarWithLinksActionsAndCenteredLogo({
   logo: ReactNode
   actions: ReactNode
 } & ComponentProps<'header'>) {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+
+    // Check scroll position on mount
+    handleScroll()
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <header className={clsx('sticky top-0 z-10 bg-olive-100 dark:bg-olive-950', className)} {...props}>
+    <header
+      className={clsx(
+        'sticky top-0 z-10 transition-all duration-300',
+        isScrolled
+          ? 'bg-olive-100/95 backdrop-blur-sm shadow-sm dark:bg-olive-950/95'
+          : 'bg-transparent',
+        className
+      )}
+      {...props}
+    >
       <style>{`:root { --scroll-padding-top: 5.25rem }`}</style>
       <nav>
         <div className="mx-auto flex h-(--scroll-padding-top) max-w-7xl items-center gap-4 px-6 lg:px-10">

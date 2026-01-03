@@ -45,7 +45,7 @@ export function ResourceCard({
               className={clsx(
                 'ml-auto rounded-full px-2 py-0.5 text-xs font-semibold uppercase tracking-wide',
                 statusVariant === 'mandatory' &&
-                  'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400',
+                  'animate-pulse bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400',
                 statusVariant === 'warning' &&
                   'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400',
                 statusVariant === 'info' && 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400',

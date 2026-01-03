@@ -5,7 +5,7 @@ import { ArrowNarrowRightIcon } from '../icons/arrow-narrow-right-icon'
 
 export function RegulatoryTimelineSection() {
   return (
-    <section className="py-16">
+    <section className="py-24">
       <Container>
         {/* Section Header */}
         <div className="mb-10 text-center sm:mb-16">
@@ -18,7 +18,7 @@ export function RegulatoryTimelineSection() {
         </div>
 
         {/* Timeline Grid */}
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-4">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-12 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-4">
           {/* Timeline Item 1: EUDR */}
           <div>
             <time dateTime="2025-12" className="flex items-center text-sm/6 font-semibold text-olive-600 dark:text-olive-500">

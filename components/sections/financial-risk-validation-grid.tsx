@@ -18,14 +18,14 @@ export function ValidationRow({
   return (
     <div
       className={clsx(
-        'grid grid-cols-1 gap-6 border-t border-olive-950/10 py-10 sm:py-16 md:grid-cols-[auto_1fr] md:gap-12 lg:gap-16 dark:border-white/10',
+        'grid grid-cols-1 gap-6 border-t border-olive-950/10 py-10 sm:py-20 md:grid-cols-[auto_1fr] md:gap-12 lg:gap-16 dark:border-white/10',
         className,
       )}
       {...props}
     >
       {/* Left Column: Large Stat */}
       <div className="flex items-start">
-        <div className="font-display text-6xl/none tracking-tight text-olive-950 sm:text-7xl/none dark:text-white">
+        <div className="font-display text-6xl/none font-bold tracking-tight text-olive-700 sm:text-7xl/none dark:text-olive-300">
           {stat}
         </div>
       </div>
@@ -52,7 +52,7 @@ export function FinancialRiskValidationGrid({
   subheadline?: ReactNode
 } & ComponentProps<'section'>) {
   return (
-    <section className={clsx('py-16', className)} {...props}>
+    <section className={clsx('py-24', className)} {...props}>
       <Container>
         <div className="flex flex-col gap-10 sm:gap-16">
           {/* Section Header */}

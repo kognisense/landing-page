@@ -7,7 +7,7 @@ import { FinancialRiskValidationGrid, ValidationRow } from './financial-risk-val
 
 export function FinancialRiskSection() {
   return (
-    <section className="py-16">
+    <section className="py-24">
       <Container>
         <div className="rounded-lg bg-olive-950/2.5 p-8 dark:bg-white/5">
           <FinancialRiskValidationGrid>
@@ -36,7 +36,7 @@ export function FinancialRiskSection() {
               <ValidationRow
                 stat="90%"
                 subheader="Market Access Risk"
-                copy="Retailers representing 90% of the UK grocery market (including Tesco, M&S, and Asda) have now mandated Scope 3 transparency. Suppliers failing to provide audit-ready carbon data face immediate 'High Risk' categorization and contract non-renewal."
+                copy="Retailers representing 90% of the UK grocery market (including Tesco, M&S, and Asda) have now mandated Scope 3 transparency. Suppliers failing to provide audit-ready carbon data risk immediate exclusion from Tier-1 retailer supply chains."
               />
 
               {/* Row 3: Supply Chain Deadline */}

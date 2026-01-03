@@ -12,14 +12,13 @@ import {
 import { FadeIn } from '@/components/elements/fade-in'
 import { BuiltForScaleSection } from '@/components/sections/built-for-scale-section'
 import { FAQSection } from '@/components/sections/faq-section'
-import { FinancialRiskSection } from '@/components/sections/financial-risk-section'
+import { FinancialRiskCardsSection } from '@/components/sections/financial-risk-cards-section'
 import { FooterSection } from '@/components/sections/footer-section'
 import { HowItWorksSection } from '@/components/sections/how-it-works-section'
 import { IndustryBenchmarksSection } from '@/components/sections/industry-benchmarks-section'
 import { RegulatoryTimelineSection } from '@/components/sections/regulatory-timeline-section'
 import { ResourcesSection } from '@/components/sections/resources-section'
 import { RiskAssessmentQuiz } from '@/components/sections/risk-assessment-quiz'
-import { WaitlistCtaSection } from '@/components/sections/waitlist-cta-section'
 
 export default function Page() {
   return (
@@ -34,7 +33,7 @@ export default function Page() {
           </>
         }
         logo={
-          <NavbarLogo href="#" className="font-display text-xl tracking-tight text-olive-950 dark:text-white">
+          <NavbarLogo href="#" className="max-lg:hidden font-display text-xl tracking-tight text-olive-950 dark:text-white">
             Docuparse ESG
           </NavbarLogo>
         }
@@ -58,9 +57,8 @@ export default function Page() {
           headline="Turn Invoices Into Audit-Ready ESG Reports—Automatically"
           subheadline={
             <p>
-              Avoid ESG fines and protect your retailer contracts. Docuparse uses secure AI to transform your
-              invoices and documents into compliance-ready reports. Built specifically for UK Food SMEs facing 2026
-              mandatory deadlines.
+              Secure your supplier contracts for 2026. Automate your ESG data extraction with audit-ready accuracy.
+              Docuparse uses secure AI to transform your invoices into compliance-ready reports for UK Food SMEs.
             </p>
           }
           cta={
@@ -76,9 +74,9 @@ export default function Page() {
           }
         />
 
-        {/* Financial Risk */}
+        {/* Financial Risk Cards */}
         <FadeIn>
-          <FinancialRiskSection />
+          <FinancialRiskCardsSection />
         </FadeIn>
 
         {/* Regulatory Timeline */}
@@ -89,11 +87,6 @@ export default function Page() {
         {/* How It Works */}
         <FadeIn>
           <HowItWorksSection />
-        </FadeIn>
-
-        {/* Waitlist CTA */}
-        <FadeIn>
-          <WaitlistCtaSection />
         </FadeIn>
 
         {/* Industry Benchmarks */}

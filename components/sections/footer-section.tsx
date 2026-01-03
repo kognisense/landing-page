@@ -14,10 +14,10 @@ export function FooterSection() {
       id="footer"
       cta={
         <NewsletterForm
-          headline="Join Waiting List & Stay in the loop!"
+          headline="Get Early Access - Q1 2026 Launch"
           subheadline={
             <p>
-              Get notified when we launch in Q1 2026. Receive regulatory updates and compliance tips for UK Food SMEs.
+              Be first in line for Docuparse ESG Early Access. Join UK Food SMEs preparing for the Jan 2026 SDR mandate.
             </p>
           }
           action="#"

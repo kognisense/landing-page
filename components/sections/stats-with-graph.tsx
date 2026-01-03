@@ -26,7 +26,7 @@ export function StatsWithGraph({ children, ...props }: ComponentProps<typeof Sec
           {children}
         </div>
       </div>
-      <div className="pointer-events-none relative h-48 sm:h-64 lg:h-36">
+      <div className="pointer-events-none relative hidden h-48 sm:block sm:h-64 lg:h-36">
         <div className="absolute bottom-0 left-1/2 w-[150vw] max-w-[calc(var(--container-7xl)-(--spacing(10)*2))] -translate-x-1/2">
           <svg
             className="h-100 w-full fill-olive-950/2.5 stroke-olive-950/40 dark:fill-white/2.5 dark:stroke-white/40"

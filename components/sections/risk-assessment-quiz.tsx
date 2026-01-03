@@ -53,7 +53,7 @@ function Step1CompanyScale({
             key={option.value}
             type="button"
             onClick={() => handleSelect(option)}
-            className={`w-full rounded-lg p-4 text-left transition-all ${
+            className={`w-full cursor-pointer rounded-lg p-4 text-left transition-all ${
               selectedOption?.value === option.value
                 ? 'bg-olive-950 text-white ring-2 ring-olive-600 dark:bg-white dark:text-olive-950'
                 : 'bg-olive-950/5 text-olive-950 hover:bg-olive-950/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10'
@@ -125,7 +125,7 @@ function Step2MarketReach({
             key={option.value}
             type="button"
             onClick={() => toggleOption(option.value)}
-            className={`w-full rounded-lg p-4 text-left transition-all ${
+            className={`w-full cursor-pointer rounded-lg p-4 text-left transition-all ${
               formData.marketReach.includes(option.value)
                 ? 'bg-olive-950 text-white ring-2 ring-olive-600 dark:bg-white dark:text-olive-950'
                 : 'bg-olive-950/5 text-olive-950 hover:bg-olive-950/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10'
@@ -207,7 +207,7 @@ function Step3CommodityExposure({
             key={option.value}
             type="button"
             onClick={() => toggleOption(option.value)}
-            className={`w-full rounded-lg p-4 text-left transition-all ${
+            className={`w-full cursor-pointer rounded-lg p-4 text-left transition-all ${
               formData.commodities.includes(option.value)
                 ? 'bg-olive-950 text-white ring-2 ring-olive-600 dark:bg-white dark:text-olive-950'
                 : 'bg-olive-950/5 text-olive-950 hover:bg-olive-950/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10'
@@ -264,7 +264,7 @@ function Step4ProcessMaturity({
             key={option.value}
             type="button"
             onClick={() => setFormData({ ...formData, processMaturity: option.value })}
-            className={`w-full rounded-lg p-4 text-left transition-all ${
+            className={`w-full cursor-pointer rounded-lg p-4 text-left transition-all ${
               formData.processMaturity === option.value
                 ? 'bg-olive-950 text-white ring-2 ring-olive-600 dark:bg-white dark:text-olive-950'
                 : 'bg-olive-950/5 text-olive-950 hover:bg-olive-950/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10'
@@ -557,7 +557,7 @@ export function RiskAssessmentQuiz() {
     <>
       <LoadingOverlay isVisible={isLoading} />
 
-      <section id="quiz" className="py-16">
+      <section id="quiz" className="py-24">
         <Container>
           {!showResults ? (
             <>
