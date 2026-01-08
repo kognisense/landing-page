@@ -2,6 +2,7 @@ import { Container } from '../elements/container'
 import { Eyebrow } from '../elements/eyebrow'
 import { Subheading } from '../elements/subheading'
 import { ArrowNarrowRightIcon } from '../icons/arrow-narrow-right-icon'
+import { BRAND } from '@/config/brand'
 
 export function RegulatoryTimelineSection() {
   return (
@@ -36,7 +37,7 @@ export function RegulatoryTimelineSection() {
             </p>
             <p className="mt-1 text-base/7 text-olive-700 dark:text-olive-400">
               <span className="font-semibold">4% turnover penalty</span> for soy, cocoa, and palm oil non-compliance.
-              All UK food companies with EU trade must provide deforestation-free supply chain verification.
+              All {BRAND.location.region} food companies with EU trade must provide deforestation-free supply chain verification.
             </p>
             <a
               href="https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en"
@@ -65,7 +66,7 @@ export function RegulatoryTimelineSection() {
             </p>
             <p className="mt-1 text-base/7 text-olive-700 dark:text-olive-400">
               Mandatory <span className="font-semibold">Scope 3 reporting</span> for &apos;Big Four&apos; suppliers
-              begins. SMEs must provide audit-ready carbon data to maintain contracts with major retailers.
+              begins. SMEs must provide audit-ready carbon data to maintain contracts with major {BRAND.location.region} retailers.
             </p>
             <a
               href="https://www.gov.uk/government/publications/sustainability-disclosure-requirements-sdr-and-investment-labels"
@@ -93,7 +94,7 @@ export function RegulatoryTimelineSection() {
               CSRD Alignment
             </p>
             <p className="mt-1 text-base/7 text-olive-700 dark:text-olive-400">
-              Required for all UK companies trading with the EU Single Market. Docuparse ESG ensures your data is{' '}
+              Required for all {BRAND.location.region} companies trading with the EU Single Market. {BRAND.name} ensures your data is{' '}
               <span className="font-semibold">ESRS-compliant</span> from day one.
             </p>
             <a
@@ -146,7 +147,7 @@ export function RegulatoryTimelineSection() {
               Real-World Supplier Standards
             </h3>
             <p className="mt-4 text-base/7 text-olive-700 dark:text-olive-400">
-              Beyond regulatory compliance, UK food suppliers must meet specific retailer requirements. We help SMEs
+              Beyond regulatory compliance, {BRAND.location.region} food suppliers must meet specific retailer requirements. We help SMEs
               automate the data extraction required for the <span className="font-semibold">&apos;Big Four&apos;</span>{' '}
               supermarket audits and the{' '}
               <span className="font-semibold">BRC Mondra Coalition framework</span>.
@@ -185,7 +186,7 @@ export function RegulatoryTimelineSection() {
         <div className="mt-8 text-center">
           <p className="text-xs text-olive-600 dark:text-olive-500">
             Data Integrity Notice: All benchmarks and regulatory dates are sourced from official 2024/2025 filings
-            and government roadmaps. Docuparse ESG ensures your reporting stays aligned with these evolving
+            and government roadmaps. {BRAND.name} ensures your reporting stays aligned with these evolving
             standards.
           </p>
         </div>

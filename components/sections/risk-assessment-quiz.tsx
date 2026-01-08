@@ -292,6 +292,16 @@ function Step4ProcessMaturity({
   )
 }
 
+// Helper function to format market reach values
+function formatMarketReach(values: string[]): string {
+  const labels: Record<string, string> = {
+    uk_retailers: 'Supplies UK Retailers',
+    exports_eu: 'Exports to EU',
+    domestic: 'Domestic Only',
+  }
+  return values.map((v) => labels[v] || v).join(', ')
+}
+
 // Results Display
 function ResultsDisplay({
   riskProfile,
@@ -395,7 +405,7 @@ function ResultsDisplay({
           <div>
             <div className="text-sm text-olive-600 dark:text-olive-500">Market Reach</div>
             <div className="mt-1 text-base font-medium text-olive-950 dark:text-white">
-              {formData.marketReach.length > 0 ? formData.marketReach.join(', ') : 'Not specified'}
+              {formData.marketReach.length > 0 ? formatMarketReach(formData.marketReach) : 'Not specified'}
             </div>
           </div>
           <div>
@@ -421,7 +431,7 @@ function ResultsDisplay({
                 href={reg.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-sm text-olive-600 hover:text-olive-700 dark:text-olive-500 dark:hover:text-olive-400"
+                className="flex items-center gap-1 text-sm text-olive-600 hover:text-olive-700 cursor-pointer dark:text-olive-500 dark:hover:text-olive-400"
               >
                 Official Source <ArrowNarrowRightIcon className="h-3 w-3" />
               </a>
@@ -458,20 +468,20 @@ function ResultsDisplay({
       {/* Lead Capture CTA */}
       <div className="text-center">
         <h3 className="text-2xl font-semibold text-olive-950 dark:text-white">
-          Your 15-Point Regulatory Roadmap is Ready
+          Your 15-Point Regulatory Roadmap Is Ready
         </h3>
         <p className="mx-auto mt-2 max-w-2xl text-base/7 text-olive-700 dark:text-olive-400">
-          Enter your business email to download the full PDF, including specific mitigation strategies for your profile.
+          Enter your business email to get the full regulatory roadmap, including specific mitigation strategies for your profile.
         </p>
-        <form className="mx-auto mt-6 flex max-w-md gap-2 rounded-full bg-olive-950 p-2 dark:bg-white">
+        <form className="mx-auto mt-6 flex max-w-md flex-col gap-3 sm:flex-row sm:gap-2 sm:rounded-full sm:bg-olive-950 sm:p-2 sm:dark:bg-white">
           <input
             type="email"
             placeholder="business@company.com"
             required
-            className="flex-1 bg-transparent px-4 py-2 text-white placeholder:text-white/50 focus:outline-hidden dark:text-olive-950 dark:placeholder:text-olive-950/50"
+            className="flex-1 rounded-full bg-olive-950 px-6 py-3 text-white placeholder:text-white/50 focus:outline-hidden sm:bg-transparent sm:px-4 sm:py-2 dark:bg-white dark:text-olive-950 dark:placeholder:text-olive-950/50 sm:dark:bg-transparent"
           />
-          <Button type="submit" size="lg" color="light">
-            Download PDF
+          <Button type="submit" size="lg" color="light" className="w-full sm:w-auto">
+            Get Roadmap
           </Button>
         </form>
       </div>

@@ -17,7 +17,7 @@ export function FooterCategory({ title, children, ...props }: { title: ReactNode
 export function FooterLink({ href, className, ...props }: { href: string } & Omit<ComponentProps<'a'>, 'href'>) {
   return (
     <li className={clsx('text-olive-700 dark:text-olive-400', className)}>
-      <a href={href} {...props} />
+      <a href={href} className="cursor-pointer" {...props} />
     </li>
   )
 }
@@ -36,7 +36,7 @@ export function SocialLink({
       href={href}
       target="_blank"
       aria-label={name}
-      className={clsx('text-olive-950 *:size-6 dark:text-white', className)}
+      className={clsx('text-olive-950 *:size-6 cursor-pointer dark:text-white', className)}
       {...props}
     />
   )
@@ -65,7 +65,7 @@ export function NewsletterForm({
         <button
           type="submit"
           aria-label="Subscribe"
-          className="relative inline-flex size-7 items-center justify-center rounded-full after:absolute after:-inset-2 hover:bg-olive-950/10 dark:hover:bg-white/10 after:pointer-fine:hidden"
+          className="relative inline-flex size-7 items-center justify-center rounded-full cursor-pointer after:absolute after:-inset-2 hover:bg-olive-950/10 dark:hover:bg-white/10 after:pointer-fine:hidden"
         >
           <ArrowNarrowRightIcon />
         </button>

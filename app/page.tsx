@@ -1,53 +1,23 @@
 import { AnnouncementBadge } from '@/components/elements/announcement-badge'
 import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
 import { Main } from '@/components/elements/main'
-import { ThemeToggle } from '@/components/elements/theme-toggle'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { HeroLeftAlignedWithDemo } from '@/components/sections/hero-left-aligned-with-demo'
-import {
-  NavbarLink,
-  NavbarLogo,
-  NavbarWithLinksActionsAndCenteredLogo,
-} from '@/components/sections/navbar-with-links-actions-and-centered-logo'
 import { FadeIn } from '@/components/elements/fade-in'
 import { BuiltForScaleSection } from '@/components/sections/built-for-scale-section'
 import { FAQSection } from '@/components/sections/faq-section'
 import { FinancialRiskCardsSection } from '@/components/sections/financial-risk-cards-section'
-import { FooterSection } from '@/components/sections/footer-section'
 import { HowItWorksSection } from '@/components/sections/how-it-works-section'
 import { IndustryBenchmarksSection } from '@/components/sections/industry-benchmarks-section'
 import { RegulatoryTimelineSection } from '@/components/sections/regulatory-timeline-section'
 import { ResourcesSection } from '@/components/sections/resources-section'
 import { RiskAssessmentQuiz } from '@/components/sections/risk-assessment-quiz'
+import { CallToActionSimpleCentered } from '@/components/sections/call-to-action-simple-centered'
+import { TrustBadgesSection } from '@/components/sections/trust-badges-section'
 
 export default function Page() {
   return (
-    <>
-      <NavbarWithLinksActionsAndCenteredLogo
-        id="navbar"
-        links={
-          <>
-            <NavbarLink href="#how-it-works">How It Works</NavbarLink>
-            <NavbarLink href="#quiz">Risk Assessment</NavbarLink>
-            <NavbarLink href="#faq">FAQ</NavbarLink>
-          </>
-        }
-        logo={
-          <NavbarLogo href="#" className="max-lg:hidden font-display text-xl tracking-tight text-olive-950 dark:text-white">
-            Docuparse ESG
-          </NavbarLogo>
-        }
-        actions={
-          <>
-            <ThemeToggle />
-            <ButtonLink href="#quiz" size="lg">
-              Check Compliance
-            </ButtonLink>
-          </>
-        }
-      />
-
-      <Main>
+    <Main>
         {/* Hero Section */}
         <HeroLeftAlignedWithDemo
           id="hero"
@@ -58,7 +28,7 @@ export default function Page() {
           subheadline={
             <p>
               Secure your supplier contracts for 2026. Automate your ESG data extraction with audit-ready accuracy.
-              Docuparse uses secure AI to transform your invoices into compliance-ready reports for UK Food SMEs.
+              Docuparse transforms your invoices into compliance-ready reports for UK Food SMEs.
             </p>
           }
           cta={
@@ -73,6 +43,11 @@ export default function Page() {
             </div>
           }
         />
+
+        {/* Trust Badges */}
+        <FadeIn>
+          <TrustBadgesSection />
+        </FadeIn>
 
         {/* Financial Risk Cards */}
         <FadeIn>
@@ -113,10 +88,24 @@ export default function Page() {
         <FadeIn>
           <ResourcesSection />
         </FadeIn>
-      </Main>
 
-      {/* Footer */}
-      <FooterSection />
-    </>
+        {/* Strategic Partnerships CTA */}
+        <FadeIn>
+          <CallToActionSimpleCentered
+            headline="Join Our Founding Partner Program"
+            subheadline={
+              <p>
+                We're seeking 10 forward-thinking UK Food SMEs to shape the future of compliance automation.
+                Secure exclusive lifetime benefits and direct access to our product roadmap.
+              </p>
+            }
+            cta={
+              <ButtonLink href="/partnerships" size="lg">
+                Learn More About the Program
+              </ButtonLink>
+            }
+          />
+        </FadeIn>
+      </Main>
   )
 }

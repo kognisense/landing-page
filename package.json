@@ -13,9 +13,12 @@
     "@tailwindplus/elements": "^1.0.21",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.26",
+    "gray-matter": "^4.0.3",
     "next": "^16",
     "react": "^19",
     "react-dom": "^19",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

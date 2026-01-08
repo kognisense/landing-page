@@ -35,7 +35,7 @@ export function ThemeToggle() {
     return (
       <button
         type="button"
-        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-olive-950 hover:bg-olive-950/10 dark:text-white dark:hover:bg-white/10"
+        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-olive-950 hover:bg-olive-950/10 cursor-pointer dark:text-white dark:hover:bg-white/10"
         aria-label="Toggle theme"
         disabled
       >
@@ -48,7 +48,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-olive-950 hover:bg-olive-950/10 dark:text-white dark:hover:bg-white/10"
+      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-olive-950 hover:bg-olive-950/10 cursor-pointer dark:text-white dark:hover:bg-white/10"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDark ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}

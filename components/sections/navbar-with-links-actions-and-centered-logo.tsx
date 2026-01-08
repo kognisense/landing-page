@@ -15,7 +15,7 @@ export function NavbarLink({
     <a
       href={href}
       className={clsx(
-        'group inline-flex items-center justify-between gap-2 text-3xl/10 font-medium text-olive-950 lg:text-sm/7 dark:text-white',
+        'group inline-flex items-center justify-between gap-2 text-3xl/10 font-medium text-olive-950 cursor-pointer lg:text-sm/7 dark:text-white',
         className,
       )}
       {...props}
@@ -31,7 +31,7 @@ export function NavbarLink({
 }
 
 export function NavbarLogo({ className, href, ...props }: { href: string } & Omit<ComponentProps<'a'>, 'href'>) {
-  return <a href={href} {...props} className={clsx('inline-flex items-stretch', className)} />
+  return <a href={href} {...props} className={clsx('inline-flex items-stretch cursor-pointer', className)} />
 }
 
 export function NavbarWithLinksActionsAndCenteredLogo({
@@ -46,6 +46,7 @@ export function NavbarWithLinksActionsAndCenteredLogo({
   actions: ReactNode
 } & ComponentProps<'header'>) {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,6 +59,18 @@ export function NavbarWithLinksActionsAndCenteredLogo({
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
 
   return (
     <header
@@ -79,10 +92,9 @@ export function NavbarWithLinksActionsAndCenteredLogo({
             <div className="flex shrink-0 items-center gap-5">{actions}</div>
 
             <button
-              command="show-modal"
-              commandfor="mobile-menu"
+              onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Toggle menu"
-              className="inline-flex rounded-full p-1.5 text-olive-950 hover:bg-olive-950/10 lg:hidden dark:text-white dark:hover:bg-white/10"
+              className="inline-flex rounded-full p-1.5 text-olive-950 hover:bg-olive-950/10 cursor-pointer lg:hidden dark:text-white dark:hover:bg-white/10"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="size-6">
                 <path
@@ -95,32 +107,31 @@ export function NavbarWithLinksActionsAndCenteredLogo({
           </div>
         </div>
 
-        <ElDialog className="lg:hidden">
-          <dialog id="mobile-menu" className="backdrop:bg-transparent">
-            <ElDialogPanel className="fixed inset-0 bg-olive-100 px-6 py-6 lg:px-10 dark:bg-olive-950">
-              <div className="flex justify-end">
-                <button
-                  command="close"
-                  commandfor="mobile-menu"
-                  aria-label="Toggle menu"
-                  className="inline-flex rounded-full p-1.5 text-olive-950 hover:bg-olive-950/10 dark:text-white dark:hover:bg-white/10"
+        {isMobileMenuOpen && (
+          <div className="fixed left-0 right-0 top-0 z-[60] h-screen overflow-y-auto bg-white px-6 py-6 shadow-xl lg:hidden dark:bg-olive-950">
+            <div className="flex justify-end">
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Close menu"
+                className="inline-flex rounded-full p-1.5 text-olive-950 hover:bg-olive-950/10 cursor-pointer dark:text-white dark:hover:bg-white/10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="size-6"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              <div className="mt-6 flex flex-col gap-6">{links}</div>
-            </ElDialogPanel>
-          </dialog>
-        </ElDialog>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="mt-6 flex flex-col gap-6" onClick={() => setIsMobileMenuOpen(false)}>
+              {links}
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   )

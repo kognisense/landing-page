@@ -1,4 +1,5 @@
 import { Faq, FAQsAccordion } from './faqs-accordion'
+import { BRAND } from '@/config/brand'
 
 export function FAQSection() {
   return (
@@ -7,7 +8,7 @@ export function FAQSection() {
       headline="Frequently Asked Questions"
       subheadline={
         <p>
-          Everything you need to know about Docuparse ESG and UK mandatory ESG reporting requirements for 2026.
+          Everything you need to know about {BRAND.name} and UK mandatory ESG reporting requirements for 2026.
         </p>
       }
     >
@@ -17,12 +18,12 @@ export function FAQSection() {
           <p>
             Companies with over £36 million in turnover or 250+ employees must comply with SECR (Streamlined Energy
             and Carbon Reporting). Suppliers to UK retailers (Tesco, M&S, Sainsbury&apos;s) face additional Scope 3
-            reporting obligations starting January 2026.
+            reporting obligations starting {BRAND.product.complianceDeadline}.
           </p>
         }
       />
       <Faq
-        question="How does Docuparse ESG handle my sensitive supplier data?"
+        question={`How does ${BRAND.name} handle my sensitive supplier data?`}
         answer={
           <>
             <p>
@@ -37,7 +38,7 @@ export function FAQSection() {
         }
       />
       <Faq
-        question="What documents can Docuparse ESG process?"
+        question={`What documents can ${BRAND.name} process?`}
         answer={
           <p>
             We extract data from utility bills (electricity, gas, water), fuel invoices, delivery receipts, fleet
@@ -60,18 +61,18 @@ export function FAQSection() {
         question="Can I export data in formats required by auditors and regulators?"
         answer={
           <p>
-            Yes. Docuparse ESG generates audit-ready reports in Excel (SECR templates), PDF (s172 strategic
+            Yes. {BRAND.name} generates audit-ready reports in Excel (SECR templates), PDF (s172 strategic
             reports), and CSV for GHG Protocol submissions. All outputs include source document references and
             calculation methodologies required by the FRC.
           </p>
         }
       />
       <Faq
-        question="What is the pricing and when will Docuparse ESG be available?"
+        question={`What is the pricing and when will ${BRAND.name} be available?`}
         answer={
           <>
             <p>
-              We&apos;re launching Q1 2026 with pricing based on document volume. Early waitlist members will
+              We&apos;re launching {BRAND.product.launchQuarter} with pricing based on document volume. Early waitlist members will
               receive priority access and founding member discounts.
             </p>
             <p>Join the waitlist at the bottom of this page to be notified when we launch.</p>

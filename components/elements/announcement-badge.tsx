@@ -21,7 +21,7 @@ export function AnnouncementBadge({
       {...props}
       data-variant={variant}
       className={clsx(
-        'group relative inline-flex max-w-full gap-x-3 overflow-hidden rounded-md px-3.5 py-2 text-sm/6 max-sm:flex-col sm:items-center sm:rounded-full sm:px-3 sm:py-0.5',
+        'group relative inline-flex max-w-full gap-x-3 overflow-hidden rounded-md px-3.5 py-2 text-sm/6 cursor-pointer max-sm:flex-col sm:items-center sm:rounded-full sm:px-3 sm:py-0.5',
         variant === 'normal' &&
           'bg-olive-950/5 text-olive-950 hover:bg-olive-950/10 dark:bg-white/5 dark:text-white dark:inset-ring-1 dark:inset-ring-white/5 dark:hover:bg-white/10',
         variant === 'overlay' &&

@@ -27,7 +27,7 @@ export function WaitlistCtaSection() {
               autoComplete="email"
               className="min-w-0 flex-auto rounded-md border-0 bg-olive-950/5 px-3.5 py-2 text-base text-olive-950 shadow-sm ring-1 ring-inset ring-olive-950/10 placeholder:text-olive-600 focus:ring-2 focus:ring-inset focus:ring-olive-500 dark:bg-white/5 dark:text-white dark:ring-white/10 dark:placeholder:text-olive-400 sm:text-sm/6"
             />
-            <Button type="submit" size="lg" color="dark">
+            <Button type="submit" size="lg" color="dark/light">
               Notify me
             </Button>
           </form>

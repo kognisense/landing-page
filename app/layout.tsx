@@ -1,9 +1,15 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { NavbarWithLinksActionsAndCenteredLogo, NavbarLink, NavbarLogo } from '@/components/sections/navbar-with-links-actions-and-centered-logo'
+import { FooterSection } from '@/components/sections/footer-section'
+import { ScrollToTop } from '@/components/elements/scroll-to-top'
+import { ThemeToggle } from '@/components/elements/theme-toggle'
+import { ButtonLink } from '@/components/elements/button'
+import { BRAND } from '@/config/brand'
 
 export const metadata: Metadata = {
-  title: 'Docuparse ESG - Automated Compliance for UK Food SMEs',
-  description: 'Avoid 2026 ESG fines. Docuparse ESG turns your invoices into audit-ready reports using secure AI. Built for UK Food sector mandatory SDR 2026 compliance.',
+  title: `${BRAND.name} - ${BRAND.tagline}`,
+  description: BRAND.description,
 }
 
 export default function RootLayout({
@@ -41,7 +47,38 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <NavbarWithLinksActionsAndCenteredLogo
+          id="navbar"
+          links={
+            <>
+              <NavbarLink href="/">Home</NavbarLink>
+              <NavbarLink href="/about">About</NavbarLink>
+              <NavbarLink href="/blog">Blog</NavbarLink>
+              <NavbarLink href="/partnerships">Partners</NavbarLink>
+              <NavbarLink href="/contact">Contact</NavbarLink>
+            </>
+          }
+          logo={
+            <NavbarLogo href="/" className="max-lg:hidden font-display text-xl tracking-tight text-olive-950 dark:text-white">
+              {BRAND.name}
+            </NavbarLogo>
+          }
+          actions={
+            <>
+              <ThemeToggle />
+              <ButtonLink href="/#quiz" size="lg">
+                Check Compliance
+              </ButtonLink>
+            </>
+          }
+        />
+
+        {children}
+
+        <FooterSection />
+        <ScrollToTop />
+      </body>
     </html>
   )
 }
