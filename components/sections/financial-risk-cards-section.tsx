@@ -14,7 +14,7 @@ export function FinancialRiskCardsSection() {
       transition: {
         delay: i * 0.12,
         duration: 1,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.16, 1, 0.3, 1] as const,
       },
     }),
   }
