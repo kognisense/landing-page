@@ -28,7 +28,6 @@ export function FooterSection() {
         <>
           <FooterCategory title="Company">
             <FooterLink href="/about">About</FooterLink>
-            <FooterLink href="/blog">Blog</FooterLink>
             <FooterLink href="/partnerships">Partners</FooterLink>
             <FooterLink href="/contact">Contact</FooterLink>
           </FooterCategory>

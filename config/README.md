@@ -6,7 +6,7 @@ All brand-related information (business name, location, contact details, etc.) i
 
 ## How to Change the Business Name
 
-To change from "Docuparse" to a different name, simply update the `brand.ts` file:
+To change from "Kognisense" to a different name, simply update the `brand.ts` file:
 
 ### 1. Open the configuration file:
 ```
@@ -87,7 +87,7 @@ The configuration is used throughout the application in these key areas:
 
 ## Example: Complete Rebrand
 
-To rebrand from "Docuparse" to "ComplianceAI":
+To rebrand from "Kognisense" to "ComplianceAI":
 
 ```typescript
 export const BRAND = {
@@ -129,14 +129,14 @@ After saving this change, rebuild the application:
 npm run build
 ```
 
-All references throughout the site will now show "ComplianceAI" instead of "Docuparse"!
+All references throughout the site will now show "ComplianceAI" instead of "Kognisense"!
 
 ## Note About Blog Posts
 
-Blog post content in `/content/blog/*.md` files contain hardcoded references to "Docuparse" in their markdown content. These are intentionally NOT linked to the BRAND config because:
+Blog post content in `/content/blog/*.md` files contain hardcoded references to "Kognisense" in their markdown content. These are intentionally NOT linked to the BRAND config because:
 
 1. They are historical content that may reference the specific brand at the time they were written
 2. Changing them automatically might alter the meaning or context of the posts
 3. They can be updated manually if needed for a complete rebrand
 
-If you want to update blog posts, search for "Docuparse" in the `/content/blog/` directory and manually update as needed.
+If you want to update blog posts, search for "Kognisense" in the `/content/blog/` directory and manually update as needed.

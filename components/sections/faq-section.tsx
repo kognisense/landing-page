@@ -8,12 +8,12 @@ export function FAQSection() {
       headline="Frequently Asked Questions"
       subheadline={
         <p>
-          Everything you need to know about {BRAND.name} and UK mandatory ESG reporting requirements for 2026.
+          Everything you need to know about {BRAND.name} and UK mandatory ESG reporting requirements for 2027.
         </p>
       }
     >
       <Faq
-        question="Who is required to comply with UK SDR 2026?"
+        question="Who is required to comply with UK SDR 2027?"
         answer={
           <p>
             Companies with over £36 million in turnover or 250+ employees must comply with SECR (Streamlined Energy

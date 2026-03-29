@@ -23,7 +23,7 @@ export function IndustryBenchmarksSection() {
               {BRAND.name} automates this &apos;data doubling&apos; via AWS Textract.
             </span>
             <a
-              href="https://www.compleatfood.com/wp-content/uploads/2024/07/The-Compleat-Food-Group-ESG-Report-2023-24.pdf"
+              href="https://www.compleatfood.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-flex items-center gap-1 text-xs text-olive-600 hover:text-olive-700 cursor-pointer dark:text-olive-500 dark:hover:text-olive-400"
@@ -43,7 +43,7 @@ export function IndustryBenchmarksSection() {
               the real-time visibility needed for this level of operational efficiency.
             </span>
             <a
-              href="https://www.bakkavor.com/en/esg/esg-resources/default.aspx"
+              href="https://www.bakkavor.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-flex items-center gap-1 text-xs text-olive-600 hover:text-olive-700 cursor-pointer dark:text-olive-500 dark:hover:text-olive-400"

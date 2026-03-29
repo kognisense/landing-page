@@ -7,9 +7,9 @@
 
 export const BRAND = {
   // Core Business Information
-  name: 'Docuparse',
+  name: 'Kognisense',
   tagline: 'Automated Compliance for UK Food SMEs',
-  description: 'Avoid 2026 ESG fines. Docuparse turns your invoices into audit-ready reports using secure AI. Built for UK Food sector mandatory SDR 2026 compliance.',
+  description: 'Avoid FY27 ESG fines. Kognisense turns your invoices into audit-ready reports using secure AI. Built for UK Food sector mandatory SDR compliance.',
 
   // Location
   location: {
@@ -20,8 +20,8 @@ export const BRAND = {
 
   // Contact Information
   contact: {
-    email: 'hello@docuparse.com',
-    website: 'https://docuparse.com',
+    email: 'hello@kognisense.com',
+    website: 'https://kognisense.com',
   },
 
   // Social Media
@@ -32,15 +32,15 @@ export const BRAND = {
 
   // Product Information
   product: {
-    launchQuarter: 'Q2 2026',
-    complianceDeadline: 'Jan 2026',
+    launchQuarter: 'Summer 2026',
+    complianceDeadline: 'Jan 2027',
     foundingPartnerLimit: 10,
   },
 
   // Legal
   legal: {
-    copyrightYear: '2025',
-    copyrightEntity: 'Docuparse',
+    copyrightYear: '2026',
+    copyrightEntity: 'Kognisense',
   },
 } as const
 
@@ -51,5 +51,5 @@ export const getBusinessNameWithLocation = () => {
 
 // Helper function to get copyright text
 export const getCopyrightText = () => {
-  return `© ${BRAND.legal.copyrightYear} ${BRAND.legal.copyrightEntity}. Built in ${BRAND.location.city}, ${BRAND.location.country} for UK regulatory standards. Verified for 2025/2026 compliance cycles.`
+  return `© ${BRAND.legal.copyrightYear} ${BRAND.legal.copyrightEntity}. Built in ${BRAND.location.city}, ${BRAND.location.country} for UK regulatory standards.`
 }

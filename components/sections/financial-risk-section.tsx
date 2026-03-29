@@ -22,7 +22,7 @@ export function FinancialRiskSection() {
             <ValidationRow
               stat="£50,000+"
               subheader="Direct Regulatory Fines"
-              copy="The FRC Conduct Committee can impose civil penalties exceeding £50,000 per breach for inaccurate or missing SECR disclosures. With the 2026 SRS transition, the 'grace period' for reporting errors is officially closing."
+              copy="The FRC Conduct Committee can impose civil penalties exceeding £50,000 per breach for inaccurate or missing SECR disclosures. With the 2027 SRS transition, the 'grace period' for reporting errors is officially closing."
             />
 
             {/* Row 2: Market Access Threat */}
@@ -34,16 +34,16 @@ export function FinancialRiskSection() {
 
             {/* Row 3: Supply Chain Deadline */}
             <ValidationRow
-              stat="Jan 2026"
+              stat="Jan 2027"
               subheader="The 'SDR Ripple' Deadline"
-              copy="While mandatory for large groups first, the UK SDR 2026 mandate triggers a data request ripple across 82% of the food supply chain. SMEs with ready-to-share ESG data are already securing 'Preferred Supplier' status over those who wait."
+              copy="While mandatory for large groups first, the UK SDR 2027 mandate triggers a data request ripple across 82% of the food supply chain. SMEs with ready-to-share ESG data are already securing 'Preferred Supplier' status over those who wait."
             />
           </FinancialRiskValidationGrid>
 
           {/* Sources Attribution */}
           <div className="mt-8 border-t border-olive-950/10 pt-8 dark:border-white/10">
             <p className="text-xs text-olive-600 dark:text-olive-500">
-              Sources: UK Government SECR Guidelines, FRC Enforcement Policy 2025, BRC Retailer Net Zero Pledges.
+              Sources: UK Government SECR Guidelines, FRC Enforcement Policy 2026, BRC Retailer Net Zero Pledges.
             </p>
           </div>
         </div>

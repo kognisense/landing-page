@@ -1,11 +1,11 @@
 ---
-title: "Why We Built Docuparse in Edinburgh for UK Businesses"
+title: "Why We Built Kognisense in Edinburgh for UK Businesses"
 date: "2025-11-20"
 excerpt: "Scotland has a rich history in document processing and regulatory compliance. Here's why Edinburgh is the perfect base for building UK-focused compliance automation."
-author: "Docuparse Team"
+author: "Kognisense Team"
 ---
 
-When we started Docuparse, we had a choice: follow the typical startup path to London, or build something distinctly Scottish, deeply rooted in Edinburgh's strengths.
+When we started Kognisense, we had a choice: follow the typical startup path to London, or build something distinctly Scottish, deeply rooted in Edinburgh's strengths.
 
 We chose Edinburgh. Here's why.
 
@@ -66,7 +66,7 @@ Our Edinburgh-based team has worked in UK Food supply chains. We've seen SECR au
 
 ## The Future: Beyond ESG
 
-While ESG compliance is our current focus, Docuparse is fundamentally a **document processing platform**. Edinburgh positions us to expand into:
+While ESG compliance is our current focus, Kognisense is fundamentally a **document processing platform**. Edinburgh positions us to expand into:
 
 - **Financial services compliance**: Leveraging local FinServ expertise
 - **Legal document automation**: Scotland's legal tech ecosystem
@@ -84,7 +84,7 @@ Being Edinburgh-based isn't just geography—it's a commitment:
 - **UK customer focus** (our roadmap is shaped by UK business needs, not Silicon Valley trends)
 - **UK jobs** (every engineer, support rep, and product manager is UK-based)
 
-When you work with Docuparse, you're supporting a Scottish company building for UK businesses.
+When you work with Kognisense, you're supporting a Scottish company building for UK businesses.
 
 ## Join Us on This Journey
 
@@ -98,4 +98,4 @@ If you believe UK businesses deserve UK-built solutions, built by teams who unde
 
 Built in Edinburgh. For UK businesses. With UK data residency.
 
-That's the Docuparse difference.
+That's the Kognisense difference.

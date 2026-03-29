@@ -12,7 +12,7 @@ export function WaitlistCtaSection() {
             Get notified when we&apos;re launching
           </h2>
           <p className="mx-auto mt-6 max-w-lg text-center text-lg text-olive-700 dark:text-olive-300">
-            Be first in line for Q1 2026 Early Access. Join UK Food SMEs preparing for the Jan 2026 SDR mandate.
+            Be first in line for Early Access. Join UK Food SMEs preparing for the Jan 2027 SDR mandate.
           </p>
           <form className="mx-auto mt-10 flex max-w-md gap-x-4">
             <label htmlFor="email-address" className="sr-only">

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 const messages = [
-  'Cross-referencing with UK SDR 2026 Mandates...',
+  'Cross-referencing with UK SDR 2027 Mandates...',
   'Checking Retailer Scope 3 Requirements...',
   'Evaluating EUDR Financial Exposure...',
   'Calculation complete.',

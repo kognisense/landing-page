@@ -58,12 +58,12 @@ export function StrategicPartnershipsSection() {
               <IncentiveCard
                 icon={<LockIcon />}
                 title="Founding Price Lock"
-                description="Permanent discount on all document tiers. Lock in your pricing before the 2026 compliance rush."
+                description="Permanent discount on all document tiers. Lock in your pricing before the 2027 compliance rush."
               />
               <IncentiveCard
                 icon={<UserGroupIcon />}
                 title="Implementation Concierge"
-                description="Priority onboarding for the 2026 reporting cycle. Dedicated support from our Edinburgh-based team."
+                description="Priority onboarding for the 2027 reporting cycle. Dedicated support from our Edinburgh-based team."
               />
             </div>
 

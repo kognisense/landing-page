@@ -7,7 +7,7 @@ export function ResourcesSection() {
         source="GOV.UK"
         title="SECR Reporting Guidelines"
         description="Official Streamlined Energy and Carbon Reporting guidance for UK businesses."
-        url="https://www.gov.uk/guidance/environmental-reporting-guidelines"
+        url="https://www.gov.uk/government/publications/environmental-reporting-guidelines-including-mandatory-greenhouse-gas-emissions-reporting-guidance"
         status="MANDATORY"
         statusVariant="mandatory"
       />
@@ -23,8 +23,8 @@ export function ResourcesSection() {
         source="HM Treasury"
         title="UK SDR Roadmap"
         description="Sustainability Disclosure Requirements and green labeling framework."
-        url="https://www.gov.uk/government/publications/sustainability-disclosure-requirements-sdr-and-investment-labels"
-        status="ENFORCEMENT 2026"
+        url="https://www.gov.uk/government/publications/sustainability-disclosure-requirements-implementation-update-2024"
+        status="ENFORCEMENT 2027"
         statusVariant="warning"
       />
       <ResourceCard
@@ -47,7 +47,7 @@ export function ResourcesSection() {
         source="Companies House"
         title="s172 Statement Guide"
         description="Section 172 strategic report requirements for UK companies."
-        url="https://www.gov.uk/government/publications/board-reporting-on-s172-strategic-report"
+        url="https://www.legislation.gov.uk/ukpga/2006/46/section/172"
         status="MANDATORY"
         statusVariant="mandatory"
       />

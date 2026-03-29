@@ -2,7 +2,7 @@
 title: "5 Reasons Manual ESG Reporting Costs More Than You Think"
 date: "2025-12-15"
 excerpt: "Beyond the obvious time investment, manual ESG data entry creates hidden costs that compound over time. Here's what most Food SMEs miss when calculating true compliance costs."
-author: "Docuparse Team"
+author: "Kognisense Team"
 ---
 
 When Food SMEs calculate the cost of ESG compliance, they typically focus on the direct labor hours: "Our accountant spends 2 days per quarter on SECR reporting, so that's 8 days per year."
@@ -68,7 +68,7 @@ Major UK retailers now include ESG data requests in supplier RFPs. Companies wit
 - **Missed "Preferred Supplier" deadlines**: Retailers prioritizing suppliers with ready ESG data
 - **Inability to capitalize on sustainability marketing**: No bandwidth to promote your environmental credentials
 
-One Docuparse partner reported winning a £2.3M contract specifically because they could provide audit-ready Scope 3 data within 48 hours of the RFP request—something their competitors couldn't match.
+One Kognisense partner reported winning a £2.3M contract specifically because they could provide audit-ready Scope 3 data within 48 hours of the RFP request—something their competitors couldn't match.
 
 ## The True Cost Calculation
 
@@ -87,7 +87,7 @@ And this assumes no major audit findings or retailer contract losses.
 
 ## The Automation ROI
 
-Docuparse customers report:
+Kognisense customers report:
 - **95% reduction** in manual data entry time
 - **99.2% accuracy** on extracted data (vs. 96-99% manual)
 - **72-hour average** RFP response time (vs. 2-3 weeks manual)

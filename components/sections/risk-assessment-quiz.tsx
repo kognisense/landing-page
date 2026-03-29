@@ -320,10 +320,10 @@ function ResultsDisplay({
       regulations: [
         {
           name: 'UK SDR',
-          deadline: 'Jan 2026',
-          link: 'https://www.gov.uk/government/publications/sustainability-disclosure-requirements-sdr-and-investment-labels',
+          deadline: 'Jan 2027',
+          link: 'https://www.gov.uk/government/publications/sustainability-disclosure-requirements-implementation-update-2024',
         },
-        { name: 'SECR', deadline: 'Mandatory', link: 'https://www.gov.uk/guidance/environmental-reporting-guidelines' },
+        { name: 'SECR', deadline: 'Mandatory', link: 'https://www.gov.uk/government/publications/environmental-reporting-guidelines-including-mandatory-greenhouse-gas-emissions-reporting-guidance' },
         {
           name: "Tesco/M&S Scope 3",
           deadline: 'Ongoing',
@@ -344,10 +344,10 @@ function ResultsDisplay({
       regulations: [
         {
           name: 'EUDR',
-          deadline: 'Dec 2025',
+          deadline: 'Active Now',
           link: 'https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en',
         },
-        { name: 'CSRD', deadline: 'June 2026', link: 'https://www.efrag.org/lab3' },
+        { name: 'CSRD', deadline: 'June 2027', link: 'https://www.efrag.org/en/sustainability-reporting' },
       ],
       impact: '4% Turnover penalty risk for EUDR. Early data adoption reduces compliance costs by 40%.',
       actions: [
@@ -361,7 +361,7 @@ function ResultsDisplay({
       statusColor: 'text-olive-700 dark:text-olive-400',
       bgColor: 'bg-olive-50 dark:bg-olive-950/20',
       regulations: [
-        { name: 'SECR', deadline: 'Voluntary', link: 'https://www.gov.uk/guidance/environmental-reporting-guidelines' },
+        { name: 'SECR', deadline: 'Voluntary', link: 'https://www.gov.uk/government/publications/environmental-reporting-guidelines-including-mandatory-greenhouse-gas-emissions-reporting-guidance' },
         { name: 'Industry Benchmarking', deadline: 'Ongoing', link: 'https://www.brcgs.com/' },
       ],
       impact:

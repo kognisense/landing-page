@@ -1,11 +1,9 @@
 import type { Metadata } from 'next'
 import { Main } from '@/components/elements/main'
 import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
-import { HeroLeftAlignedWithPhoto } from '@/components/sections/hero-left-aligned-with-photo'
 import { DocumentCentered } from '@/components/sections/document-centered'
 import { CallToActionSimpleCentered } from '@/components/sections/call-to-action-simple-centered'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
-import Image from 'next/image'
 import { BRAND } from '@/config/brand'
 
 export const metadata: Metadata = {
@@ -16,35 +14,13 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <Main>
-      <HeroLeftAlignedWithPhoto
-        headline={`About ${BRAND.name}`}
-        subheadline={
-          <p>
-            We're building the intelligent document processing platform for UK businesses facing
-            complex regulatory requirements. Our mission is to transform document chaos into clean,
-            actionable data—freeing you to focus on growth, not data entry.
-          </p>
-        }
-        cta={
-          <div className="flex items-center gap-4">
-            <ButtonLink href="/partnerships" size="lg">
-              Join Our Partner Program
-            </ButtonLink>
-            <PlainButtonLink href="/contact" size="lg">
-              Get in Touch <ArrowNarrowRightIcon />
-            </PlainButtonLink>
-          </div>
-        }
-        photo={
-          <div className="flex items-center justify-center bg-olive-100 dark:bg-olive-900 aspect-[4/3] rounded-lg">
-            <p className="text-olive-600 dark:text-olive-400 text-lg">
-              [About Hero Image Placeholder]
-            </p>
-          </div>
-        }
-      />
+      <DocumentCentered id="about" headline="About">
+        <p>
+          We're building the intelligent document processing platform for UK businesses facing
+          complex regulatory requirements. Our mission is to transform document chaos into clean,
+          actionable data—freeing you to focus on growth, not data entry.
+        </p>
 
-      <DocumentCentered id="who-we-are" headline="Who We Are">
         <p>
           {BRAND.name} is a document processing platform built in {BRAND.location.city}, {BRAND.location.country}. We focus on doing
           one thing exceptionally well: extracting structured data from unstructured documents using AI.

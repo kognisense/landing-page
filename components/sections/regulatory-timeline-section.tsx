@@ -26,7 +26,7 @@ export function RegulatoryTimelineSection() {
               <svg viewBox="0 0 4 4" aria-hidden="true" className="mr-4 size-1 flex-none">
                 <circle r="2" cx="2" cy="2" fill="currentColor" />
               </svg>
-              Dec 2025
+              Now Active
               <div
                 aria-hidden="true"
                 className="absolute -ml-2 h-px w-screen -translate-x-full bg-olive-950/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0 dark:bg-white/10"
@@ -37,7 +37,7 @@ export function RegulatoryTimelineSection() {
             </p>
             <p className="mt-1 text-base/7 text-olive-700 dark:text-olive-400">
               <span className="font-semibold">4% turnover penalty</span> for soy, cocoa, and palm oil non-compliance.
-              All {BRAND.location.region} food companies with EU trade must provide deforestation-free supply chain verification.
+              {BRAND.location.region} food companies with EU trade must now provide deforestation-free supply chain verification.
             </p>
             <a
               href="https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en"
@@ -51,11 +51,11 @@ export function RegulatoryTimelineSection() {
 
           {/* Timeline Item 2: UK SDR */}
           <div>
-            <time dateTime="2026-01" className="flex items-center text-sm/6 font-semibold text-olive-600 dark:text-olive-500">
+            <time dateTime="2027-01" className="flex items-center text-sm/6 font-semibold text-olive-600 dark:text-olive-500">
               <svg viewBox="0 0 4 4" aria-hidden="true" className="mr-4 size-1 flex-none">
                 <circle r="2" cx="2" cy="2" fill="currentColor" />
               </svg>
-              Jan 2026
+              Jan 2027
               <div
                 aria-hidden="true"
                 className="absolute -ml-2 h-px w-screen -translate-x-full bg-olive-950/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0 dark:bg-white/10"
@@ -69,7 +69,7 @@ export function RegulatoryTimelineSection() {
               begins. SMEs must provide audit-ready carbon data to maintain contracts with major {BRAND.location.region} retailers.
             </p>
             <a
-              href="https://www.gov.uk/government/publications/sustainability-disclosure-requirements-sdr-and-investment-labels"
+              href="https://www.gov.uk/government/publications/sustainability-disclosure-requirements-implementation-update-2024"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 inline-flex items-center gap-1 text-sm text-olive-600 hover:text-olive-700 dark:text-olive-500 dark:hover:text-olive-400"
@@ -80,11 +80,11 @@ export function RegulatoryTimelineSection() {
 
           {/* Timeline Item 3: CSRD */}
           <div>
-            <time dateTime="2026-06" className="flex items-center text-sm/6 font-semibold text-olive-600 dark:text-olive-500">
+            <time dateTime="2027-06" className="flex items-center text-sm/6 font-semibold text-olive-600 dark:text-olive-500">
               <svg viewBox="0 0 4 4" aria-hidden="true" className="mr-4 size-1 flex-none">
                 <circle r="2" cx="2" cy="2" fill="currentColor" />
               </svg>
-              June 2026
+              June 2027
               <div
                 aria-hidden="true"
                 className="absolute -ml-2 h-px w-screen -translate-x-full bg-olive-950/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0 dark:bg-white/10"
@@ -98,7 +98,7 @@ export function RegulatoryTimelineSection() {
               <span className="font-semibold">ESRS-compliant</span> from day one.
             </p>
             <a
-              href="https://www.efrag.org/lab3"
+              href="https://www.efrag.org/en/sustainability-reporting"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 inline-flex items-center gap-1 text-sm text-olive-600 hover:text-olive-700 dark:text-olive-500 dark:hover:text-olive-400"
@@ -127,7 +127,7 @@ export function RegulatoryTimelineSection() {
               claims. Companies without verifiable data trails face regulatory penalties and market exclusion.
             </p>
             <a
-              href="https://www.fca.org.uk/publications/consultation-papers/cp23-28-code-conduct-esg-ratings-and-data-product-providers"
+              href="https://www.fca.org.uk/firms/climate-change-sustainable-finance"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 inline-flex items-center gap-1 text-sm text-olive-600 hover:text-olive-700 dark:text-olive-500 dark:hover:text-olive-400"
@@ -185,7 +185,7 @@ export function RegulatoryTimelineSection() {
         {/* Data Integrity Footer */}
         <div className="mt-8 text-center">
           <p className="text-xs text-olive-600 dark:text-olive-500">
-            Data Integrity Notice: All benchmarks and regulatory dates are sourced from official 2024/2025 filings
+            Data Integrity Notice: All benchmarks and regulatory dates are sourced from official 2025/2026 filings
             and government roadmaps. {BRAND.name} ensures your reporting stays aligned with these evolving
             standards.
           </p>

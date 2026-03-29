@@ -14,6 +14,7 @@ import { ResourcesSection } from '@/components/sections/resources-section'
 import { RiskAssessmentQuiz } from '@/components/sections/risk-assessment-quiz'
 import { CallToActionSimpleCentered } from '@/components/sections/call-to-action-simple-centered'
 import { TrustBadgesSection } from '@/components/sections/trust-badges-section'
+import { BRAND } from '@/config/brand'
 
 export default function Page() {
   return (
@@ -22,13 +23,13 @@ export default function Page() {
         <HeroLeftAlignedWithDemo
           id="hero"
           eyebrow={
-            <AnnouncementBadge href="#" text="SDR 2026 Compliance Mandatory for UK Food SMEs" cta="Learn more" />
+            <AnnouncementBadge href="#" text="SDR 2027 Compliance Mandatory for UK Food SMEs" cta="Learn more" />
           }
           headline="Turn Invoices Into Audit-Ready ESG Reports—Automatically"
           subheadline={
             <p>
-              Secure your supplier contracts for 2026. Automate your ESG data extraction with audit-ready accuracy.
-              Docuparse transforms your invoices into compliance-ready reports for UK Food SMEs.
+              Secure your supplier contracts for 2027. Automate your ESG data extraction with audit-ready accuracy.
+              {BRAND.name} transforms your invoices into compliance-ready reports for UK Food SMEs.
             </p>
           }
           cta={
@@ -43,11 +44,6 @@ export default function Page() {
             </div>
           }
         />
-
-        {/* Trust Badges */}
-        <FadeIn>
-          <TrustBadgesSection />
-        </FadeIn>
 
         {/* Financial Risk Cards */}
         <FadeIn>
@@ -87,6 +83,11 @@ export default function Page() {
         {/* Resources */}
         <FadeIn>
           <ResourcesSection />
+        </FadeIn>
+
+        {/* Trust Badges */}
+        <FadeIn>
+          <TrustBadgesSection />
         </FadeIn>
 
         {/* Strategic Partnerships CTA */}

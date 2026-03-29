@@ -54,7 +54,6 @@ export default function RootLayout({
             <>
               <NavbarLink href="/">Home</NavbarLink>
               <NavbarLink href="/about">About</NavbarLink>
-              <NavbarLink href="/blog">Blog</NavbarLink>
               <NavbarLink href="/partnerships">Partners</NavbarLink>
               <NavbarLink href="/contact">Contact</NavbarLink>
             </>

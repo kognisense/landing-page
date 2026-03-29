@@ -2,7 +2,7 @@
 title: "UK SDR 2026: What Food SMEs Need to Know"
 date: "2026-01-03"
 excerpt: "The UK's Sustainability Disclosure Requirements (SDR) come into force in 2026. Here's what Food SMEs need to prepare for and why automated compliance is becoming essential."
-author: "Docuparse Team"
+author: "Kognisense Team"
 ---
 
 The UK's Sustainability Disclosure Requirements (SDR) mark a significant shift in how businesses report environmental and social impacts. For Food SMEs, this isn't just another regulatory checkbox—it's a fundamental change to how you demonstrate value to retailers and customers.
@@ -53,7 +53,7 @@ The average Food SME spends **40-60 hours** manually extracting data from invoic
 - Manual spreadsheet errors causing audit failures
 - Time-consuming data reconciliation across systems
 
-## How Docuparse Helps
+## How Kognisense Helps
 
 Our AI-powered platform automates the entire compliance workflow:
 
