@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-email/components": "^1.0.10",
     "@tailwindplus/elements": "^1.0.21",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.26",
@@ -19,6 +20,7 @@
     "react-dom": "^19",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
+    "resend": "^6.9.4",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
