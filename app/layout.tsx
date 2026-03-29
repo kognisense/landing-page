@@ -59,7 +59,7 @@ export default function RootLayout({
             </>
           }
           logo={
-            <NavbarLogo href="/" className="max-lg:hidden font-display text-xl tracking-tight text-olive-950 dark:text-white">
+            <NavbarLogo href="/" className="font-display text-xl tracking-tight text-olive-950 dark:text-white">
               {BRAND.name}
             </NavbarLogo>
           }
@@ -69,6 +69,17 @@ export default function RootLayout({
               <ButtonLink href="/#quiz" size="lg">
                 Check Compliance
               </ButtonLink>
+            </>
+          }
+          mobileActions={
+            <>
+              <ButtonLink href="/#quiz" size="lg" className="w-full justify-center">
+                Check Compliance
+              </ButtonLink>
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-sm text-olive-600 dark:text-olive-400">Theme</span>
+                <ThemeToggle />
+              </div>
             </>
           }
         />

@@ -22,7 +22,7 @@ export function HeroLeftAlignedWithDemo({
   footer?: ReactNode
 } & ComponentProps<'section'>) {
   return (
-    <section className={clsx('relative min-h-screen flex items-center overflow-hidden -mt-[5.25rem] pt-[5.25rem]', className)} {...props}>
+    <section className={clsx('relative flex items-center overflow-hidden -mt-[5.25rem] pt-[5.25rem] lg:min-h-screen', className)} {...props}>
       {/* Minimalist ESG Pattern Background */}
       <div className="pointer-events-none absolute inset-0 -top-[5.25rem]">
         {/* Subtle Grid Pattern */}
@@ -51,9 +51,9 @@ export function HeroLeftAlignedWithDemo({
         </svg>
       </div>
 
-      <Container className="relative z-10 flex min-h-screen flex-col justify-center py-24">
-        <div className="flex flex-col gap-20">
-          <div className="flex flex-col items-start gap-10">
+      <Container className="relative z-10 flex flex-col justify-center py-8 lg:min-h-screen lg:py-24">
+        <div className="flex flex-col gap-8 lg:gap-20">
+          <div className="flex flex-col items-start gap-4 lg:gap-10">
             {eyebrow}
             <Heading className="max-w-6xl leading-[1.1]">{headline}</Heading>
             <Text size="lg" className="flex max-w-3xl flex-col gap-4 text-lg/8">

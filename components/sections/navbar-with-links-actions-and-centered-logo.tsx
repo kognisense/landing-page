@@ -38,12 +38,14 @@ export function NavbarWithLinksActionsAndCenteredLogo({
   links,
   logo,
   actions,
+  mobileActions,
   className,
   ...props
 }: {
   links: ReactNode
   logo: ReactNode
   actions: ReactNode
+  mobileActions?: ReactNode
 } & ComponentProps<'header'>) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -89,7 +91,7 @@ export function NavbarWithLinksActionsAndCenteredLogo({
           <div className="flex flex-1 gap-8 max-lg:hidden">{links}</div>
           <div className="flex items-center">{logo}</div>
           <div className="flex flex-1 items-center justify-end gap-4">
-            <div className="flex shrink-0 items-center gap-5">{actions}</div>
+            <div className="hidden shrink-0 items-center gap-5 lg:flex">{actions}</div>
 
             <button
               onClick={() => setIsMobileMenuOpen(true)}
@@ -130,6 +132,11 @@ export function NavbarWithLinksActionsAndCenteredLogo({
             <div className="mt-6 flex flex-col gap-6" onClick={() => setIsMobileMenuOpen(false)}>
               {links}
             </div>
+            {mobileActions && (
+              <div className="mt-8 flex flex-col gap-4 border-t border-olive-200 pt-6 dark:border-olive-800" onClick={() => setIsMobileMenuOpen(false)}>
+                {mobileActions}
+              </div>
+            )}
           </div>
         )}
       </nav>
