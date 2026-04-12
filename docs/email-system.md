@@ -20,8 +20,8 @@ Create `.env.local`:
 
 ```
 RESEND_API_KEY=re_xxxxxxxxxxxx
-EMAIL_FROM=Kognisense <noreply@kognisense.com>
-ADMIN_EMAIL=hello@kognisense.com
+EMAIL_FROM=Kognisense <noreply@kognisense.co.uk>
+ADMIN_EMAIL=hello@kognisense.co.uk
 ```
 
 ### 2. Get Resend API Key

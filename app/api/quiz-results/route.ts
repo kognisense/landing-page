@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { QuizEmail, type RiskLevel } from '@/components/emails/QuizEmail'
+import { BRAND } from '@/config/brand'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -41,10 +42,6 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const emailFrom = process.env.EMAIL_FROM || (process.env.NODE_ENV === 'production' 
-      ? 'Kognisense <noreply@kognisense.com>' 
-      : 'onboarding@resend.dev')
-
     const riskLabels = {
       HIGH_RISK: 'Action Required',
       MEDIUM_RISK: 'Review Recommended',
@@ -52,7 +49,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: emailFrom,
+      from: process.env.EMAIL_FROM || BRAND.email.from,
       to: [email],
       subject: `Your ${riskLabels[riskLevel]} ESG Roadmap: 15 Steps to 2027 Compliance`,
       react: QuizEmail({

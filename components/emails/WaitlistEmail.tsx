@@ -13,6 +13,7 @@ import {
   Link,
 } from '@react-email/components'
 import * as React from 'react'
+import { BRAND } from '@/config/brand'
 
 export interface WaitlistEmailProps {
   name: string
@@ -24,8 +25,8 @@ export interface WaitlistEmailProps {
 export function WaitlistEmail({
   name,
   email,
-  ctaUrl = 'https://kognisense.com',
-  logoUrl = 'https://kognisense.com/logo.png',
+  ctaUrl = BRAND.urls.website,
+  logoUrl = BRAND.urls.logo,
 }: WaitlistEmailProps) {
   const greeting = name ? `Hi ${name},` : 'Hello,'
 
@@ -132,9 +133,9 @@ export function WaitlistEmail({
               <Text style={{ fontSize: '12px', lineHeight: '18px', color: '#9CA3AF', textAlign: 'center' }}>
                 © {new Date().getFullYear()} Kognisense. Built in Edinburgh, Scotland.
                 <br />
-                <Link href="https://kognisense.com/privacy-policy" style={{ color: '#6B7280' }}>Privacy Policy</Link>
+                <Link href={BRAND.urls.privacyPolicy} style={{ color: '#6B7280' }}>Privacy Policy</Link>
                 {' • '}
-                <Link href="https://kognisense.com" style={{ color: '#6B7280' }}>kognisense.com</Link>
+                <Link href={BRAND.urls.website} style={{ color: '#6B7280' }}>{BRAND.domain}</Link>
               </Text>
             </Section>
           </Container>

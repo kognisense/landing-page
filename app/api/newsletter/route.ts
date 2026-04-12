@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { NewsletterEmail } from '@/components/emails/NewsletterEmail'
+import { BRAND } from '@/config/brand'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -29,10 +30,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Email service not configured' }, { status: 500 })
     }
 
-    const emailFrom = process.env.EMAIL_FROM || 'onboarding@resend.dev'
-
     const { data, error } = await resend.emails.send({
-      from: emailFrom,
+      from: process.env.EMAIL_FROM || BRAND.email.from,
       to: [email],
       subject: "You're subscribed to Kognisense updates",
       react: NewsletterEmail({ email }),

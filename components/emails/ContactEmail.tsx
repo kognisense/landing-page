@@ -13,6 +13,7 @@ import {
   Link,
 } from '@react-email/components'
 import * as React from 'react'
+import { BRAND } from '@/config/brand'
 
 export interface ContactEmailProps {
   name: string
@@ -28,8 +29,8 @@ export function ContactEmail({
   email,
   company,
   message,
-  ctaUrl = 'https://kognisense.com',
-  logoUrl = 'https://kognisense.com/logo.png',
+  ctaUrl = BRAND.urls.website,
+  logoUrl = BRAND.urls.logo,
 }: ContactEmailProps) {
   return (
     <Html>
@@ -131,8 +132,8 @@ export function ContactEmail({
 export function ContactConfirmationEmail({
   name,
   email,
-  ctaUrl = 'https://kognisense.com',
-  logoUrl = 'https://kognisense.com/logo.png',
+  ctaUrl = BRAND.urls.website,
+  logoUrl = BRAND.urls.logo,
 }: {
   name: string
   email: string

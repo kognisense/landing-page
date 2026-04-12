@@ -12,6 +12,7 @@ import {
   Link,
 } from '@react-email/components'
 import * as React from 'react'
+import { BRAND } from '@/config/brand'
 
 export interface NewsletterEmailProps {
   email: string
@@ -21,8 +22,8 @@ export interface NewsletterEmailProps {
 
 export function NewsletterEmail({
   email,
-  ctaUrl = 'https://kognisense.com',
-  logoUrl = 'https://kognisense.com/logo.png',
+  ctaUrl = BRAND.urls.website,
+  logoUrl = BRAND.urls.logo,
 }: NewsletterEmailProps) {
   return (
     <Html>
@@ -109,7 +110,7 @@ export function NewsletterEmail({
               <Text style={{ fontSize: '12px', lineHeight: '18px', color: '#9CA3AF', textAlign: 'center' }}>
                 © {new Date().getFullYear()} Kognisense. Built in Edinburgh, Scotland.
                 <br />
-                <Link href="https://kognisense.com/privacy-policy" style={{ color: '#6B7280' }}>Privacy Policy</Link>
+                <Link href={BRAND.urls.privacyPolicy} style={{ color: '#6B7280' }}>Privacy Policy</Link>
                 {' • '}
                 <Link href={`${ctaUrl}/unsubscribe?email=${encodeURIComponent(email)}`} style={{ color: '#6B7280' }}>Unsubscribe</Link>
               </Text>

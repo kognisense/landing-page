@@ -15,6 +15,7 @@ import {
   Link,
 } from '@react-email/components'
 import * as React from 'react'
+import { BRAND } from '@/config/brand'
 
 export type CollaborationPath = 'design_partner' | 'strategic_advisor' | 'capital_partner'
 
@@ -48,7 +49,7 @@ export function PartnershipEmail({
   role,
   collaborationPath,
   message,
-  logoUrl = 'https://kognisense.com/logo.png',
+  logoUrl = BRAND.urls.logo,
 }: PartnershipEmailProps) {
   return (
     <Html>
@@ -186,8 +187,8 @@ export function PartnershipConfirmationEmail({
   name,
   email,
   collaborationPath,
-  ctaUrl = 'https://kognisense.com',
-  logoUrl = 'https://kognisense.com/logo.png',
+  ctaUrl = BRAND.urls.website,
+  logoUrl = BRAND.urls.logo,
 }: {
   name: string
   email: string

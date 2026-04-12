@@ -15,6 +15,7 @@ import {
   Link,
 } from '@react-email/components'
 import * as React from 'react'
+import { BRAND } from '@/config/brand'
 
 export type RiskLevel = 'HIGH_RISK' | 'MEDIUM_RISK' | 'PREPARATORY'
 
@@ -252,8 +253,8 @@ export function QuizEmail({
   name,
   email,
   riskLevel,
-  ctaUrl = 'https://kognisense.com/#waitlist',
-  logoUrl = 'https://kognisense.com/logo.png',
+  ctaUrl = `${BRAND.urls.website}/#waitlist`,
+  logoUrl = BRAND.urls.logo,
 }: QuizEmailProps) {
   const config = riskConfig[riskLevel]
   const profileStepsList = profileSteps[riskLevel]
@@ -502,12 +503,12 @@ export function QuizEmail({
               >
                 © {new Date().getFullYear()} Kognisense. Built in Edinburgh, Scotland for UK regulatory standards.
                 <br />
-                <Link href="https://kognisense.com/privacy-policy" style={{ color: '#6B7280' }}>
+                <Link href={BRAND.urls.privacyPolicy} style={{ color: '#6B7280' }}>
                   Privacy Policy
                 </Link>
                 {' • '}
-                <Link href="https://kognisense.com" style={{ color: '#6B7280' }}>
-                  kognisense.com
+                <Link href={BRAND.urls.website} style={{ color: '#6B7280' }}>
+                  {BRAND.domain}
                 </Link>
               </Text>
             </Section>
