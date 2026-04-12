@@ -1,51 +1,42 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
+import { NextRequest } from 'next/server'
+import { resend, EMAIL_FROM } from '@/lib/resend'
+import { apiSuccess, apiBadRequest, apiConfigError, apiError, handleApiError } from '@/lib/api-response'
 import { WaitlistEmail } from '@/components/emails/WaitlistEmail'
-import { BRAND } from '@/config/brand'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
-interface WaitlistRequest {
+interface WaitlistBody {
   email: string
   name?: string
 }
 
-function validateRequest(data: unknown): data is WaitlistRequest {
-  if (typeof data !== 'object' || data === null) return false
+function validate(data: unknown): WaitlistBody | null {
+  if (typeof data !== 'object' || data === null) return null
   const obj = data as Record<string, unknown>
-  return typeof obj.email === 'string' && obj.email.includes('@')
+  if (typeof obj.email !== 'string' || !obj.email.includes('@')) return null
+  return { email: obj.email, name: typeof obj.name === 'string' ? obj.name : undefined }
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
+    const validated = validate(body)
 
-    if (!validateRequest(body)) {
-      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
-    }
-
-    const { email, name } = body
-
-    if (!process.env.RESEND_API_KEY) {
-      console.error('RESEND_API_KEY is not configured')
-      return NextResponse.json({ error: 'Email service not configured' }, { status: 500 })
-    }
+    if (!validated) return apiBadRequest('Invalid email address')
+    if (!process.env.RESEND_API_KEY) return apiConfigError('Email service not configured')
 
     const { data, error } = await resend.emails.send({
-      from: process.env.EMAIL_FROM || BRAND.email.from,
-      to: [email],
+      from: EMAIL_FROM,
+      to: [validated.email],
       subject: "You're on the Kognisense Early Access List",
-      react: WaitlistEmail({ name: name || '', email }),
+      react: WaitlistEmail({ name: validated.name || '', email: validated.email }),
     })
 
     if (error) {
       console.error('Resend error:', error)
-      return NextResponse.json({ error: 'Failed to send email', details: error.message }, { status: 500 })
+      return apiError('Failed to send email', 500, error.message)
     }
 
-    return NextResponse.json({ success: true, messageId: data?.id })
+    return apiSuccess({ messageId: data?.id })
   } catch (error) {
-    console.error('API error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return handleApiError(error)
   }
 }

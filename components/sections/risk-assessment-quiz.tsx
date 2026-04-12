@@ -8,6 +8,7 @@ import { Button, PlainButton } from '../elements/button'
 import { ProgressBar } from '../elements/progress-bar'
 import { LoadingOverlay } from '../elements/loading-overlay'
 import { ArrowNarrowRightIcon } from '../icons/arrow-narrow-right-icon'
+import { useFormSubmit } from '@/lib/use-form-submit'
 
 // Types
 type FormData = {
@@ -312,6 +313,17 @@ function ResultsDisplay({
   formData: FormData
   onReset: () => void
 }) {
+  const [quizEmail, setQuizEmail] = useState('')
+  const { status: quizStatus, errorMessage: quizError, submit } = useFormSubmit<{ email: string; riskLevel: RiskProfile }>({
+    endpoint: '/api/quiz-results',
+    logLabel: 'Quiz',
+  })
+
+  const handleQuizSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    submit({ email: quizEmail, riskLevel: riskProfile }).then(() => setQuizEmail(''))
+  }
+
   const profiles = {
     HIGH_RISK: {
       status: 'IMMEDIATE COMPLIANCE REQUIRED',
@@ -473,17 +485,41 @@ function ResultsDisplay({
         <p className="mx-auto mt-2 max-w-2xl text-base/7 text-olive-700 dark:text-olive-400">
           Enter your business email to get the full regulatory roadmap, including specific mitigation strategies for your profile.
         </p>
-        <form className="mx-auto mt-6 flex max-w-md flex-col gap-3 sm:flex-row sm:gap-2 sm:rounded-full sm:bg-olive-950 sm:p-2 sm:dark:bg-white">
-          <input
-            type="email"
-            placeholder="business@company.com"
-            required
-            className="flex-1 rounded-full bg-olive-950 px-6 py-3 text-white placeholder:text-white/50 focus:outline-hidden sm:bg-transparent sm:px-4 sm:py-2 dark:bg-white dark:text-olive-950 dark:placeholder:text-olive-950/50 sm:dark:bg-transparent"
-          />
-          <Button type="submit" size="lg" color="light" className="w-full sm:w-auto">
-            Get Roadmap
-          </Button>
-        </form>
+
+        {quizStatus === 'success' ? (
+          <div className="mx-auto mt-6 max-w-md rounded-2xl border border-olive-950/10 bg-olive-50 p-6 dark:border-white/10 dark:bg-white/5">
+            <div className="mx-auto mb-3 flex size-12 items-center justify-center rounded-full bg-olive-600/10 dark:bg-olive-400/10">
+              <svg className="size-6 text-olive-600 dark:text-olive-400" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p className="font-medium text-olive-950 dark:text-white">Roadmap sent!</p>
+            <p className="mt-1 text-sm text-olive-700 dark:text-olive-400">Check your inbox for your personalised compliance roadmap.</p>
+          </div>
+        ) : (
+          <>
+            <form
+              onSubmit={handleQuizSubmit}
+              className="mx-auto mt-6 flex max-w-md flex-col gap-3 sm:flex-row sm:gap-2 sm:rounded-full sm:bg-olive-950 sm:p-2 sm:dark:bg-white"
+            >
+              <input
+                type="email"
+                placeholder="business@company.com"
+                required
+                value={quizEmail}
+                onChange={(e) => setQuizEmail(e.target.value)}
+                disabled={quizStatus === 'loading'}
+                className="flex-1 rounded-full bg-olive-950 px-6 py-3 text-white placeholder:text-white/50 focus:outline-hidden disabled:opacity-50 sm:bg-transparent sm:px-4 sm:py-2 dark:bg-white dark:text-olive-950 dark:placeholder:text-olive-950/50 sm:dark:bg-transparent"
+              />
+              <Button type="submit" size="lg" color="light" disabled={quizStatus === 'loading'} className="w-full sm:w-auto">
+                {quizStatus === 'loading' ? 'Sending...' : 'Get Roadmap'}
+              </Button>
+            </form>
+            {quizStatus === 'error' && (
+              <p className="mx-auto mt-3 max-w-md text-sm text-red-600 dark:text-red-400">{quizError}</p>
+            )}
+          </>
+        )}
       </div>
 
       {/* Reset */}

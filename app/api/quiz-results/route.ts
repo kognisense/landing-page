@@ -1,81 +1,54 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
+import { NextRequest } from 'next/server'
+import { resend, EMAIL_FROM } from '@/lib/resend'
+import { apiSuccess, apiBadRequest, apiConfigError, apiError, handleApiError } from '@/lib/api-response'
 import { QuizEmail, type RiskLevel } from '@/components/emails/QuizEmail'
-import { BRAND } from '@/config/brand'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const VALID_RISK_LEVELS: RiskLevel[] = ['HIGH_RISK', 'MEDIUM_RISK', 'PREPARATORY']
 
-interface QuizResultsRequest {
+const RISK_LABELS: Record<RiskLevel, string> = {
+  HIGH_RISK: 'Action Required',
+  MEDIUM_RISK: 'Review Recommended',
+  PREPARATORY: 'Ready to Prepare',
+}
+
+interface QuizBody {
   email: string
-  name?: string
+  name: string
   riskLevel: RiskLevel
 }
 
-function validateRequest(data: unknown): data is QuizResultsRequest {
-  if (typeof data !== 'object' || data === null) return false
+function validate(data: unknown): QuizBody | null {
+  if (typeof data !== 'object' || data === null) return null
   const obj = data as Record<string, unknown>
-  
-  if (typeof obj.email !== 'string' || !obj.email.includes('@')) return false
-  if (!['HIGH_RISK', 'MEDIUM_RISK', 'PREPARATORY'].includes(obj.riskLevel as string)) return false
-  
-  return true
+  if (typeof obj.email !== 'string' || !obj.email.includes('@')) return null
+  if (!VALID_RISK_LEVELS.includes(obj.riskLevel as RiskLevel)) return null
+  return { email: obj.email, name: (obj.name as string) || '', riskLevel: obj.riskLevel as RiskLevel }
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
+    const validated = validate(body)
 
-    if (!validateRequest(body)) {
-      return NextResponse.json(
-        { error: 'Invalid request body' },
-        { status: 400 }
-      )
-    }
+    if (!validated) return apiBadRequest('Invalid request body')
+    if (!process.env.RESEND_API_KEY) return apiConfigError('Email service not configured')
 
-    const { email, name, riskLevel } = body
-
-    if (!process.env.RESEND_API_KEY) {
-      console.error('RESEND_API_KEY is not configured')
-      return NextResponse.json(
-        { error: 'Email service not configured' },
-        { status: 500 }
-      )
-    }
-
-    const riskLabels = {
-      HIGH_RISK: 'Action Required',
-      MEDIUM_RISK: 'Review Recommended',
-      PREPARATORY: 'Ready to Prepare',
-    }
+    const { email, name, riskLevel } = validated
 
     const { data, error } = await resend.emails.send({
-      from: process.env.EMAIL_FROM || BRAND.email.from,
+      from: EMAIL_FROM,
       to: [email],
-      subject: `Your ${riskLabels[riskLevel]} ESG Roadmap: 15 Steps to 2027 Compliance`,
-      react: QuizEmail({
-        name: name || '',
-        email,
-        riskLevel,
-      }),
+      subject: `Your ${RISK_LABELS[riskLevel]} ESG Roadmap: 15 Steps to 2027 Compliance`,
+      react: QuizEmail({ name, email, riskLevel }),
     })
 
     if (error) {
       console.error('Resend error:', error)
-      return NextResponse.json(
-        { error: 'Failed to send email', details: error.message },
-        { status: 500 }
-      )
+      return apiError('Failed to send email', 500, error.message)
     }
 
-    return NextResponse.json({
-      success: true,
-      messageId: data?.id,
-    })
+    return apiSuccess({ messageId: data?.id })
   } catch (error) {
-    console.error('API error:', error)
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    )
+    return handleApiError(error)
   }
 }

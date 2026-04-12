@@ -1,9 +1,22 @@
 'use client'
 
+import { useState } from 'react'
 import { Container } from '../elements/container'
 import { Button } from '../elements/button'
+import { useFormSubmit } from '@/lib/use-form-submit'
 
 export function WaitlistCtaSection() {
+  const [email, setEmail] = useState('')
+  const { status, errorMessage, submit, reset } = useFormSubmit<{ email: string }>({
+    endpoint: '/api/waitlist',
+    logLabel: 'Waitlist',
+  })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    submit({ email }).then(() => setEmail(''))
+  }
+
   return (
     <section className="py-16">
       <Container>
@@ -14,25 +27,42 @@ export function WaitlistCtaSection() {
           <p className="mx-auto mt-6 max-w-lg text-center text-lg text-olive-700 dark:text-olive-300">
             Be first in line for Early Access. Join UK Food SMEs preparing for the Jan 2027 SDR mandate.
           </p>
-          <form className="mx-auto mt-10 flex max-w-md gap-x-4">
-            <label htmlFor="email-address" className="sr-only">
-              Email address
-            </label>
-            <input
-              id="email-address"
-              type="email"
-              name="email"
-              required
-              placeholder="Enter your email"
-              autoComplete="email"
-              className="min-w-0 flex-auto rounded-md border-0 bg-olive-950/5 px-3.5 py-2 text-base text-olive-950 shadow-sm ring-1 ring-inset ring-olive-950/10 placeholder:text-olive-600 focus:ring-2 focus:ring-inset focus:ring-olive-500 dark:bg-white/5 dark:text-white dark:ring-white/10 dark:placeholder:text-olive-400 sm:text-sm/6"
-            />
-            <Button type="submit" size="lg" color="dark/light">
-              Notify me
-            </Button>
-          </form>
 
-          {/* Background decoration - olive gradient (more prominent in dark mode) */}
+          {status === 'success' ? (
+            <div className="mx-auto mt-10 max-w-md text-center">
+              <p className="text-lg font-medium text-olive-700 dark:text-olive-300">
+                You&apos;re on the list! Check your inbox for confirmation.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="mx-auto mt-10 flex max-w-md gap-x-4">
+              <label htmlFor="waitlist-email" className="sr-only">
+                Email address
+              </label>
+              <input
+                id="waitlist-email"
+                type="email"
+                name="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={status === 'loading'}
+                placeholder="Enter your email"
+                autoComplete="email"
+                className="min-w-0 flex-auto rounded-md border-0 bg-olive-950/5 px-3.5 py-2 text-base text-olive-950 shadow-sm ring-1 ring-inset ring-olive-950/10 placeholder:text-olive-600 focus:ring-2 focus:ring-inset focus:ring-olive-500 disabled:opacity-50 dark:bg-white/5 dark:text-white dark:ring-white/10 dark:placeholder:text-olive-400 sm:text-sm/6"
+              />
+              <Button type="submit" size="lg" color="dark/light" disabled={status === 'loading'}>
+                {status === 'loading' ? 'Joining...' : 'Notify me'}
+              </Button>
+            </form>
+          )}
+
+          {status === 'error' && (
+            <p className="mx-auto mt-3 max-w-md text-center text-sm text-red-600 dark:text-red-400">
+              {errorMessage}
+            </p>
+          )}
+
           <svg
             viewBox="0 0 1024 1024"
             aria-hidden="true"

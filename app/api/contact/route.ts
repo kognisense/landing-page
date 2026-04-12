@@ -1,57 +1,43 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
+import { NextRequest } from 'next/server'
+import { resend, EMAIL_FROM, ADMIN_EMAIL } from '@/lib/resend'
+import { apiSuccess, apiBadRequest, apiConfigError, apiError, handleApiError } from '@/lib/api-response'
 import { ContactEmail, ContactConfirmationEmail } from '@/components/emails/ContactEmail'
-import { BRAND } from '@/config/brand'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
-interface ContactRequest {
+interface ContactBody {
   name: string
   email: string
-  company?: string
+  company: string
   message: string
 }
 
-function validateRequest(data: unknown): data is ContactRequest {
-  if (typeof data !== 'object' || data === null) return false
+function validate(data: unknown): ContactBody | null {
+  if (typeof data !== 'object' || data === null) return null
   const obj = data as Record<string, unknown>
-  return (
-    typeof obj.name === 'string' &&
-    obj.name.length > 0 &&
-    typeof obj.email === 'string' &&
-    obj.email.includes('@') &&
-    typeof obj.message === 'string' &&
-    obj.message.length > 0
-  )
+  if (typeof obj.name !== 'string' || !obj.name) return null
+  if (typeof obj.email !== 'string' || !obj.email.includes('@')) return null
+  if (typeof obj.message !== 'string' || !obj.message) return null
+  return { name: obj.name, email: obj.email, company: (obj.company as string) || '', message: obj.message }
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
+    const validated = validate(body)
 
-    if (!validateRequest(body)) {
-      return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })
-    }
+    if (!validated) return apiBadRequest('Invalid request body')
+    if (!process.env.RESEND_API_KEY) return apiConfigError('Email service not configured')
 
-    const { name, email, company, message } = body
-
-    if (!process.env.RESEND_API_KEY) {
-      console.error('RESEND_API_KEY is not configured')
-      return NextResponse.json({ error: 'Email service not configured' }, { status: 500 })
-    }
-
-    const emailFrom = process.env.EMAIL_FROM || BRAND.email.from
-    const adminEmail = process.env.ADMIN_EMAIL || BRAND.email.admin
+    const { name, email, company, message } = validated
 
     const [adminResult, userResult] = await Promise.all([
       resend.emails.send({
-        from: emailFrom,
-        to: [adminEmail],
+        from: EMAIL_FROM,
+        to: [ADMIN_EMAIL],
         subject: `New Contact Form Submission from ${name}`,
-        react: ContactEmail({ name, email, company: company || '', message }),
+        react: ContactEmail({ name, email, company, message }),
       }),
       resend.emails.send({
-        from: emailFrom,
+        from: EMAIL_FROM,
         to: [email],
         subject: 'We received your message - Kognisense',
         react: ContactConfirmationEmail({ name, email }),
@@ -60,15 +46,11 @@ export async function POST(request: NextRequest) {
 
     if (adminResult.error || userResult.error) {
       console.error('Resend errors:', { admin: adminResult.error, user: userResult.error })
-      return NextResponse.json(
-        { error: 'Failed to send email' },
-        { status: 500 }
-      )
+      return apiError('Failed to send email')
     }
 
-    return NextResponse.json({ success: true })
+    return apiSuccess()
   } catch (error) {
-    console.error('API error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return handleApiError(error)
   }
 }
