@@ -17,11 +17,21 @@ export async function POST(request: NextRequest) {
     if (!email) return apiBadRequest('Invalid email address')
     if (!process.env.RESEND_API_KEY) return apiConfigError('Email service not configured')
 
+    const { data: contactData, error: contactError } = await resend.contacts.create({
+      email,
+    })
+    if (contactError) {
+      console.error('Resend contacts.create error:', contactError)
+    }
+
     if (WAITLIST_SEGMENT_ID) {
-      await resend.contacts.create({
-        email,
-        segments: [{ id: WAITLIST_SEGMENT_ID }],
+      const { error: segmentError } = await resend.contacts.segments.add({
+        contactId: contactData?.id || email,
+        segmentId: WAITLIST_SEGMENT_ID,
       })
+      if (segmentError) {
+        console.error('Resend contacts.segments.add error:', segmentError)
+      }
     }
 
     const { data, error } = await resend.emails.send({

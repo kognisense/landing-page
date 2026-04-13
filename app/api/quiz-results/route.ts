@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server'
-import { resend, EMAIL_FROM } from '@/lib/resend'
+import { resend, EMAIL_FROM, WAITLIST_SEGMENT_ID } from '@/lib/resend'
 import { apiSuccess, apiBadRequest, apiConfigError, apiError, handleApiError } from '@/lib/api-response'
 import { QuizEmail, type RiskLevel } from '@/components/emails/QuizEmail'
 
@@ -34,6 +34,24 @@ export async function POST(request: NextRequest) {
     if (!process.env.RESEND_API_KEY) return apiConfigError('Email service not configured')
 
     const { email, name, riskLevel } = validated
+
+    const { data: contactData, error: contactError } = await resend.contacts.create({
+      email,
+      firstName: name || undefined,
+    })
+    if (contactError) {
+      console.error('Resend contacts.create error:', contactError)
+    }
+
+    if (WAITLIST_SEGMENT_ID) {
+      const { error: segmentError } = await resend.contacts.segments.add({
+        contactId: contactData?.id || email,
+        segmentId: WAITLIST_SEGMENT_ID,
+      })
+      if (segmentError) {
+        console.error('Resend contacts.segments.add error:', segmentError)
+      }
+    }
 
     const { data, error } = await resend.emails.send({
       from: EMAIL_FROM,
