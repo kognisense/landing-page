@@ -35,17 +35,25 @@ export async function POST(request: NextRequest) {
 
     const { email, name, riskLevel } = validated
 
-    const { data: contactData, error: contactError } = await resend.contacts.create({
+    const { error: contactError } = await resend.contacts.create({
       email,
       firstName: name || undefined,
+      unsubscribed: false,
+      ...(WAITLIST_SEGMENT_ID && {
+        segments: [{ id: WAITLIST_SEGMENT_ID }],
+      }),
     })
     if (contactError) {
-      console.error('Resend contacts.create error:', contactError)
+      const isDuplicate = contactError.message?.toLowerCase().includes('already exists')
+      if (!isDuplicate) {
+        console.error('Resend contacts.create error:', contactError)
+        return apiError('Failed to add contact', 500, contactError.message)
+      }
     }
 
-    if (WAITLIST_SEGMENT_ID) {
+    if (WAITLIST_SEGMENT_ID && contactError) {
       const { error: segmentError } = await resend.contacts.segments.add({
-        contactId: contactData?.id || email,
+        email,
         segmentId: WAITLIST_SEGMENT_ID,
       })
       if (segmentError) {
