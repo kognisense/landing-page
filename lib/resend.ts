@@ -5,3 +5,4 @@ export const resend = new Resend(process.env.RESEND_API_KEY)
 
 export const EMAIL_FROM = process.env.EMAIL_FROM || BRAND.email.from
 export const ADMIN_EMAIL = process.env.ADMIN_EMAIL || BRAND.email.admin
+export const WAITLIST_SEGMENT_ID = process.env.RESEND_WAITLIST_SEGMENT_ID || ''

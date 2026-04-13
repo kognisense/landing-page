@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server'
-import { resend, EMAIL_FROM } from '@/lib/resend'
+import { resend, EMAIL_FROM, WAITLIST_SEGMENT_ID } from '@/lib/resend'
 import { apiSuccess, apiBadRequest, apiConfigError, apiError, handleApiError } from '@/lib/api-response'
 import { NewsletterEmail } from '@/components/emails/NewsletterEmail'
 
@@ -16,6 +16,13 @@ export async function POST(request: NextRequest) {
 
     if (!email) return apiBadRequest('Invalid email address')
     if (!process.env.RESEND_API_KEY) return apiConfigError('Email service not configured')
+
+    if (WAITLIST_SEGMENT_ID) {
+      await resend.contacts.create({
+        email,
+        segments: [{ id: WAITLIST_SEGMENT_ID }],
+      })
+    }
 
     const { data, error } = await resend.emails.send({
       from: EMAIL_FROM,

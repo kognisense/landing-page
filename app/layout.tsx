@@ -6,6 +6,8 @@ import { ScrollToTop } from '@/components/elements/scroll-to-top'
 import { ThemeToggle } from '@/components/elements/theme-toggle'
 import { ButtonLink } from '@/components/elements/button'
 import { BRAND } from '@/config/brand'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   title: `${BRAND.name} - ${BRAND.tagline}`,
@@ -88,6 +90,8 @@ export default function RootLayout({
 
         <FooterSection />
         <ScrollToTop />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
